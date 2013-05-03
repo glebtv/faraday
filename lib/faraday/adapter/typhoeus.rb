@@ -40,7 +40,7 @@ module Faraday
           :method  => method,
           :body    => env[:body],
           :headers => env[:request_headers],
-          :disable_ssl_peer_verification => (env[:ssl] && !env[:ssl].fetch(:verify, true))
+          :ssl_verify_peer => (env[:ssl] && env[:ssl].fetch(:verify, true))
 
         configure_ssl     req, env
         configure_proxy   req, env
